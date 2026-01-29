@@ -45,8 +45,9 @@ This project proposes **HyNaPT**, a framework that:
 
 ```text
 HyNaPT/
+│
 ├── data/
-│   └── example_Gamma.mat          % Preprocessed neural signals
+│   └── example_Gamma.mat          # Example preprocessed SEEG signals
 │
 ├── src/
 │   ├── hypergraph/
@@ -57,35 +58,39 @@ HyNaPT/
 │   │   └── computeRefinedConnectivity.m
 │   │
 │   ├── signal_features/
+│   │   ├── Average_Connection_Strength.m
 │   │   ├── get_plvMatrix.m
 │   │   ├── compute_PAC.m
 │   │   └── compute_HFO_PSD.m
 │   │
 │   ├── similarity/
-│   │   └── GK_Similarity.m
+│   │   ├── GK_Similarity.m
+│   │   └── compute_node_similarity.m
 │   │
 │   ├── transition/
-│   │   ├── find_node_pair_connections.m
 │   │   ├── compute_hyperedge_weight.m
 │   │   ├── compute_hyperedge_adj_weight.m
-│   │   └── build_transition_matrix.m
+│   │   ├── find_node_pair_connections.m
+│   │   └── assemble_transition_matrix.m
 │   │
 │   ├── clustering/
-│   │   ├── spectral_kmeans_clustering.m
-│   │   └── mapLabels.m
+│   │   └── spectral_kmeans_clustering.m
 │   │
 │   └── utils/
 │       ├── z_score_normalization.m
 │       └── min_max_normalization.m
 │
 ├── experiments/
-│   ├── run_pipeline.m
-│   ├── analyze_Qij_dynamics.m
-│   ├── node_vulnerability_analysis.m
-│   └── dynamic_clustering_analysis.m
+│   ├── main_run_patient.m
+│   ├── main_analyze_node_fragility_dynamics.m
+│   ├── main_simulate_transition_path_sampling.m
+│   ├── main_compare.m
+│   └── main_brake.m
 │
 ├── figures/
 │   └── (generated results)
+│
+├── patient_config.m               # Patient-specific configuration
 │
 └── README.md
 ```
