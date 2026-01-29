@@ -14,8 +14,6 @@ This project proposes **HyNaPT**, a framework that:
 * Analyzes **dynamic propagation paths and modular organization**
 * Supports **pre-ictal / ictal / post-ictal comparative analysis**
 
-The framework is designed for **epilepsy research**, but can be adapted to other multivariate neural systems.
-
 ---
 
 ## 2. Key Features
