@@ -231,20 +231,6 @@ All results are deterministic given the same input data and random seed.
 
 ---
 
-## 9. Citation
-
-If you use this code, please cite:
-
-```text
-[Author Names]. 
-Hypergraph-based Neural Activity Propagation and Transition Modeling 
-for Epileptic Brain Networks.
-```
-
-(Manuscript in preparation)
-
----
-
 ## Requirements
 
 - MATLAB R2021b (tested with R2021a/b; any recent version should work)
