@@ -245,11 +245,17 @@ for Epileptic Brain Networks.
 
 ---
 
-## 10. License
+## Requirements
 
-This project is released for **academic and research use only**.
-Commercial use requires permission from the authors.
+- MATLAB R2021b (tested with R2021a/b; any recent version should work)
+- Signal Processing Toolbox (for `hilbert`)
+---
 
+## Getting Started
 
-Just tell me 👍
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your_username/HEC-hypergraph-centrality.git
+cd HEC-hypergraph-centrality
 
