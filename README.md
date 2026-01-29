@@ -222,15 +222,6 @@ All results are deterministic given the same input data and random seed.
 
 ---
 
-## 8. Dependencies
-
-* MATLAB R2020a or later
-* Signal Processing Toolbox
-* Statistics and Machine Learning Toolbox
-* Graph and Network Algorithms Toolbox
-
----
-
 ## Requirements
 
 - MATLAB R2021b (tested with R2021a/b; any recent version should work)
