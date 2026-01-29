@@ -1,2 +1,2 @@
-# HyNaPT---a-probabilistic-information-fusion-framework
+# HyNaPT
 a probabilistic information fusion framework
