@@ -46,51 +46,31 @@ This project proposes **HyNaPT**, a framework that:
 ```text
 HyNaPT/
 │
-├── data/
-│   └── example_Gamma.mat          # Example preprocessed SEEG signals
+├── assemble_transition_matrix.m
+├── Average_Connection_Strength.m
+├── build_hypergraph.m
+├── compute_fragility.m
+├── compute_HFO_PSD.m
+├── compute_hyperedge_weight.m
+├── compute_node_similarity.m
+├── compute_PAC.m
+├── compute_Refined_Connectivity.m
+├── d_u.m
+├── extract_node_features.m
+├── find_node_pair_connections.m
+├── gain_hyperEdges.m
+├── get_plvMatrix.m
+├── GK_Similarity.m
+├── hypergraph_avg_shortest_path.m
+├── hypergraph_efficiency.m
+├── patient_config.m
+├── spectral_kmeans_clustering.m
 │
-├── src/
-│   ├── hypergraph/
-│   │   ├── gain_hyperEdges.m
-│   │   ├── d_u.m
-│   │   ├── hypergraph_avg_shortest_path.m
-│   │   ├── hypergraph_efficiency.m
-│   │   └── computeRefinedConnectivity.m
-│   │
-│   ├── signal_features/
-│   │   ├── Average_Connection_Strength.m
-│   │   ├── get_plvMatrix.m
-│   │   ├── compute_PAC.m
-│   │   └── compute_HFO_PSD.m
-│   │
-│   ├── similarity/
-│   │   ├── GK_Similarity.m
-│   │   └── compute_node_similarity.m
-│   │
-│   ├── transition/
-│   │   ├── compute_hyperedge_weight.m
-│   │   ├── compute_hyperedge_adj_weight.m
-│   │   ├── find_node_pair_connections.m
-│   │   └── assemble_transition_matrix.m
-│   │
-│   ├── clustering/
-│   │   └── spectral_kmeans_clustering.m
-│   │
-│   └── utils/
-│       ├── z_score_normalization.m
-│       └── min_max_normalization.m
-│
-├── experiments/
-│   ├── main_run_patient.m
-│   ├── main_analyze_node_fragility_dynamics.m
-│   ├── main_simulate_transition_path_sampling.m
-│   ├── main_compare.m
-│   └── main_brake.m
-│
-├── figures/
-│   └── (generated results)
-│
-├── patient_config.m               # Patient-specific configuration
+├── main_analyze_node_fragility_dynamics.m
+├── main_brake.m
+├── main_compare.m
+├── main_run_patient.m
+├── main_simulate_transition_path_sampling.m
 │
 └── README.md
 ```
