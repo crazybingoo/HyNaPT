@@ -8,7 +8,7 @@ The pipeline integrates **signal processing**, **hypergraph construction**, **no
 
 ## 1. Overview
 
-This project proposes **HyNaPT (Hypergraph-based Neural Activity Propagation and Transition)**, a framework that:
+This project proposes **HyNaPT (a probabilistic information fusion framework that integrates hypergraph structure, node attributes, and temporal dynamics into a unified probabilistic transition model for dynamic propagation)**, a framework that:
 
 * Constructs **time-resolved hypergraphs** from multichannel neural signals
 * Quantifies **node vulnerability and functional roles**
