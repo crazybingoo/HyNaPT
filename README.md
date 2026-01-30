@@ -27,7 +27,7 @@ This project proposes **HyNaPT**, a framework that:
   * High-frequency oscillation (HFO) power
   * Signal amplitude statistics
   * Phase–Amplitude Coupling (PAC)
-  * Clinical zone priors (EZ / PZ / NIZ)
+  * Clinical zone priors (SOZ / PZ / NIZ)
 * **Gaussian kernel similarity** for node-state affinity
 * **Four-case transition modeling**:
 
@@ -118,7 +118,7 @@ For each time window:
 * HFO power
 * Signal amplitude (mean / max)
 * Phase–Amplitude Coupling (PAC)
-* Clinical prior weights (EZ / PZ / NIZ)
+* Clinical prior weights (SOZ / PZ / NIZ)
 
 All features are **z-scored and min–max normalized**.
 
