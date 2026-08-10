@@ -96,4 +96,4 @@ Citation metadata are provided in [`CITATION.cff`](CITATION.cff). The manuscript
 
 ## License
 
-No open-source license has yet been selected by the authors. A license must be chosen before archival publication (for example, before a Zenodo release). Until then, no permission beyond viewing and reviewing the public code is granted.
+HyNaPT is released under the [BSD 3-Clause License](LICENSE). This permissive open-source license allows use, modification, and redistribution while requiring preservation of the copyright and license notice and prohibiting unauthorized endorsement by the authors or contributors.

@@ -5,6 +5,5 @@
 3. Full manuscript figures depend on controlled clinical recordings and participant-level intermediate results; these are intentionally excluded.
 4. Several thresholds are inherited from exploratory analysis and still require formal sensitivity analysis.
 5. The public workflow currently supports the reference sampling rate of 1024 Hz only.
-6. No software license has yet been selected by the authors.
 
 These items must be resolved before claiming complete independent reproduction of the manuscript results.
