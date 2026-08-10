@@ -1,0 +1,33 @@
+# MATLAB generated files
+*.asv
+*.autosave
+*.m~
+*.mlx.bak
+slprj/
+codegen/
+
+# Clinical and electrophysiology data: never commit
+*.mat
+*.edf
+*.eeg
+*.set
+*.fdt
+*.vhdr
+*.vmrk
+*.dat
+*.h5
+*.hdf5
+
+# Patient-derived figures and generated outputs
+*.fig
+results/*
+!results/README.md
+
+# Local configuration and editor files
+config/local_*.m
+data/raw/
+data/processed/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

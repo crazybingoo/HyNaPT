@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use HyNaPT, please cite the software and the associated manuscript."
+title: "HyNaPT: attributed-hypergraph analysis of dynamic seizure propagation"
+type: software
+authors:
+  - family-names: Wang
+    given-names: Chenlong
+  - family-names: Xie
+    given-names: Haotian
+  - family-names: Feng
+    given-names: Yangce
+  - family-names: Li
+    given-names: Xiaoli
+  - family-names: Li
+    given-names: Chaohui
+  - family-names: Zhang
+    given-names: Xi
+repository-code: "https://github.com/crazybingoo/HyNaPT"
+version: 0.2.0-dev
+date-released: 2026-08-10
