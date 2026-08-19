@@ -1,14 +1,23 @@
 # Data access and input schema
 
-No participant data are distributed in this repository.
+No participant-level data are distributed in this repository.
 
-## Expected in-memory input
+## Public files
 
-- Variable: a numeric signal matrix such as `X`.
-- Shape: `n_channels x n_samples`.
-- Reference sampling rate: 1024 Hz.
-- Values: finite, preprocessed SEEG samples.
+- `Source_Data.xlsx`: disclosure-reviewed aggregate statistics and synthetic numerical tests.
+- `examples/synthetic_demo.m`: deterministic synthetic signals generated in memory.
 
-Participant-level recordings, channel labels, clinical annotations, and derived matrices must remain in the institution's approved controlled-access storage. Users with legitimate access should load data outside the repository and pass only an in-memory matrix to the public workflow.
+The workbook contains no participant rows or coded participant identifiers. It is not a substitute for the restricted raw dataset.
 
-For public testing, use `examples/synthetic_demo.m`, which generates deterministic synthetic signals and contains no clinical information.
+## Restricted inputs
+
+Raw and processed SEEG recordings, clinical annotations, electrode/contact labels, coordinates, dates, linkage keys, participant-level matrices, and participant-level result rows must remain in approved controlled storage. Access is governed by the originating ethics, consent, institutional, and clinical data-use conditions; this repository does not create a new access route.
+
+## Expected in-memory signal input
+
+- numeric matrix with shape `n_channels x n_samples`;
+- finite preprocessed values;
+- reference sampling rate of 1024 Hz;
+- no identifiers embedded in variable names or paths committed to Git.
+
+Authorized analysts should load restricted data outside the repository and pass only an in-memory numeric matrix to `run_feature_pipeline`.

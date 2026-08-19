@@ -17,6 +17,11 @@ codegen/
 *.dat
 *.h5
 *.hdf5
+*.csv
+*.tsv
+*.xls
+*.xlsx
+!Source_Data.xlsx
 
 # Patient-derived figures and generated outputs
 *.fig

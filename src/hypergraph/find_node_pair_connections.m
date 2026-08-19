@@ -105,7 +105,7 @@ function [connectionType, typeCounts, hyperEdgeGroups, node_to_edges] = ...
             end
 
             %% Case 3: Indirect hyperedge path
-            visited = false(max([edges_i, edges_j]));
+            visited = false(1, length(hyperEdges));
             queue = edges_i;
             found = false;
 

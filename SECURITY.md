@@ -1,13 +1,23 @@
 # Security and clinical-data policy
 
-HyNaPT is research software for analyses involving clinical electrophysiology. Participant privacy takes precedence over convenience.
+Participant privacy takes precedence over convenience.
 
 ## Never commit
 
-- Raw or processed participant recordings.
-- Clinical zone labels linked to an individual.
-- Names, initials, hospital identifiers, record numbers, dates, or local clinical paths.
-- Patient-level intermediate matrices, sampled paths, figures, or tables.
-- Credentials, private download URLs, or controlled-access tokens.
+- raw or processed participant recordings;
+- clinical labels or participant-level rows;
+- names, initials, record numbers, dates, institutional identifiers, or linkage keys;
+- real or coded participant identifiers;
+- electrode/contact labels, coordinates, or clinical images;
+- participant-derived matrices, paths, figures, or tables;
+- absolute local paths, credentials, tokens, or private URLs.
 
-Only synthetic examples and aggregate, disclosure-reviewed outputs may be considered for public release. If sensitive material is discovered in the current tree or Git history, stop distribution and contact the repository owner. Removing a file in a later commit does not remove it from Git history; history rewriting and credential revocation may be required.
+Only synthetic examples and aggregate outputs that have passed disclosure review may be public. `Source_Data.xlsx` is the sole tracked spreadsheet exception; all other spreadsheet and delimited-data files are ignored by default.
+
+Before every public commit, run:
+
+```powershell
+python tools/privacy_scan.py .
+```
+
+If sensitive material is found in the working tree or Git history, stop distribution. Deleting it in a later commit does not remove it from history; repository history may need to be rewritten and any exposed credentials revoked.

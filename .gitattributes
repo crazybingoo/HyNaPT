@@ -1,5 +1,5 @@
 * text=auto eol=lf
-*.m text diff=matlab
+*.m text eol=lf diff=matlab
 *.md text
 *.yml text
 *.yaml text

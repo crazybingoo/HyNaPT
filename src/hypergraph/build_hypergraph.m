@@ -1,6 +1,8 @@
-function hyper = build_hypergraph(datanew)
+function hyper = build_hypergraph(datanew, options)
+%BUILD_HYPERGRAPH Backward-compatible entry point for current construction.
 
-hyper.edges = gain_hyperEdges(datanew);
-hyper.dc = size(datanew,1);
-hyper.degree = d_u(hyper.edges, hyper.dc)';
+if nargin < 2
+    options = struct;
+end
+hyper = construct_hypergraph(datanew, options);
 end

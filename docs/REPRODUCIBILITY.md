@@ -5,9 +5,9 @@
 - MATLAB R2021b
 - Signal Processing Toolbox
 - Statistics and Machine Learning Toolbox
-- CPU execution; no GPU is required for the synthetic smoke example
+- R 4.2 or later with `ggplot2`, `readxl`, `patchwork`, and `svglite`
 
-## Public reproducibility check
+## Public method check
 
 From the repository root:
 
@@ -18,21 +18,23 @@ tests = runtests('tests');
 assertSuccess(tests)
 ```
 
-The example fixes the random seed to 42 and generates six synthetic channels over five seconds. It should produce three overlapping 3-second windows with a 1-second step.
+The random seed is fixed. The synthetic example exercises elbow selection, hypergraph construction, COC weighting, feature extraction, the four transition cases, and temporal fusion.
 
-## Clinical analysis boundary
+## Public figure check
 
-Clinical recordings are intentionally not part of the public repository. Authorized analysts should load them from controlled storage, construct a de-identified in-memory matrix, and pass that matrix to `run_feature_pipeline`.
+Each script under `r_figures` reads `Source_Data.xlsx` and writes to `results/public_figures`. The source workbook contains aggregate estimates only. Public plots therefore verify the numeric summaries and visual encodings without exposing participant-level rows.
 
-## Manuscript-level reproduction status
+## Reproduction matrix
 
 | Component | Publicly runnable | Requires controlled data | Status |
 |---|---:|---:|---|
-| Hypergraph construction | Yes | No for synthetic demo | Tested |
-| Node-feature extraction | Yes | No for synthetic demo | Tested |
-| Temporal feature workflow | Yes | No for synthetic demo | Tested |
-| Clinical cohort analysis | No | Yes | Not distributed |
-| Four-regime transition model | No | Usually | Historical upload incomplete |
-| Manuscript figures | No | Yes | Must be rebuilt as parameterized scripts |
+| Synthetic end-to-end method | Yes | No | Tested |
+| Density-curve elbow | Yes | No | Tested |
+| Phase-based COC | Yes | No | Tested |
+| Four-case transition model | Yes | No | Tested on synthetic networks |
+| Aggregate manuscript evidence | Yes | No | Source workbook and R scripts |
+| Participant-level statistics | No | Yes | Not distributed |
+| Representative clinical traces and paths | No | Yes | Not distributed |
+| Independent external validation | No | Yes | Not yet available |
 
-This distinction prevents a smoke example from being misrepresented as reproduction of the clinical claims.
+The public aggregate workbook supports verification of reported summaries but cannot reconstruct participant-level tests from first principles. Authorized analysts need the approved controlled environment for that purpose.

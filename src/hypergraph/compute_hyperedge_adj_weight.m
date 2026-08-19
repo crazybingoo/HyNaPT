@@ -30,8 +30,8 @@ for firstEdge = 1:numEdges
         for node = commonNodes
             attenuation = exp(-lambda * nodeDegree(node) / maxDegree);
             relatedEdges = find(cellfun(@(edge) ismember(node, edge), hyperEdges));
-            contribution = sum(edgeWeights(relatedEdges) ./ ...
-                cellfun(@numel, hyperEdges(relatedEdges))');
+            cardinalities = cellfun(@numel, hyperEdges(relatedEdges));
+            contribution = sum(edgeWeights(relatedEdges(:)) ./ cardinalities(:));
             value = value + attenuation * contribution;
         end
         weightsBetweenEdges(firstEdge, secondEdge) = value;

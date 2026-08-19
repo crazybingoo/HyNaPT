@@ -1,9 +1,8 @@
 # Known limitations
 
-1. The historical public upload omitted four transition-rule functions referenced by `assemble_transition_matrix.m`.
-2. `compute_hyperedge_weight.m` depends on an external `measure_COC` implementation that was not included in the upload and whose redistribution terms have not been verified.
-3. Full manuscript figures depend on controlled clinical recordings and participant-level intermediate results; these are intentionally excluded.
-4. Several thresholds are inherited from exploratory analysis and still require formal sensitivity analysis.
-5. The public workflow currently supports the reference sampling rate of 1024 Hz only.
-
-These items must be resolved before claiming complete independent reproduction of the manuscript results.
+1. The public repository does not contain participant-level recordings, labels, paths, matrices, or rows. Consequently, participant-level statistical analyses cannot be independently recomputed from public files.
+2. Aggregate plotting scripts reproduce the released numeric evidence but not restricted participant points, representative clinical traces, or electrode-level layouts.
+3. The current evidence is based on a small single-center cohort of 10 participants with one analyzed seizure per participant; external validation and surgical-outcome endpoints are not available.
+4. Model-derived asymmetric transitions do not establish causal propagation.
+5. The primary implementation supports the reference sampling rate of 1024 Hz. Other sampling rates require a documented preprocessing and validation step.
+6. Indirect-path enumeration is bounded by configurable hop and path limits to prevent combinatorial growth on large dense hypergraphs.

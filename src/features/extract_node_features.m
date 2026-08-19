@@ -1,29 +1,16 @@
-function attr = extract_node_features(datanew, hyper, cfg)
-
-attr.R_zone = cfg.R_zone(:);
-if numel(attr.R_zone) ~= hyper.dc
-    error('HyNaPT:InvalidZonePrior', ...
-        'R_zone must contain one value per channel.');
-end
+function attr = extract_node_features(signal, hyper)
+%EXTRACT_NODE_FEATURES Compute the manuscript node-attribute vector.
+%   Clinical zone labels are deliberately excluded. They may initialize a
+%   downstream propagation experiment but are not node attributes.
 
 attr.hyperdegree = normalize_feature(hyper.degree);
+attr.meanPLV = normalize_feature(mean(hyper.pairwisePLV, 2));
+attr.logHFO = normalize_feature(log1p(compute_HFO_PSD(signal)));
+attr.logAmpMax = normalize_feature(log1p(max(abs(signal), [], 2)));
+attr.logAmpMean = normalize_feature(log1p(mean(abs(signal), 2)));
+[pac, ~] = compute_PAC(signal);
+attr.PAC = normalize_feature(pac);
 
-attr.meanPLV = normalize_feature( ...
-    Average_Connection_Strength(datanew));
-
-attr.avgPath = normalize_feature( ...
-    hypergraph_avg_shortest_path(hyper.edges, hyper.dc));
-
-attr.psd_hfo = normalize_feature( ...
-    compute_HFO_PSD(datanew));
-
-attr.amp_max = normalize_feature(max(abs(datanew),[],2));
-attr.amp_mean = normalize_feature(mean(abs(datanew),2));
-
-[~, PAC] = compute_PAC(datanew);
-attr.PAC = normalize_feature(PAC);
-
-attr.matrix = [attr.R_zone, attr.hyperdegree(:), attr.meanPLV(:), ...
-    attr.avgPath(:), attr.psd_hfo(:), attr.amp_max(:), ...
-    attr.amp_mean(:), attr.PAC(:)];
+attr.matrix = [attr.hyperdegree(:), attr.meanPLV(:), attr.logHFO(:), ...
+    attr.logAmpMax(:), attr.logAmpMean(:), attr.PAC(:)];
 end
