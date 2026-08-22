@@ -17,6 +17,6 @@ The participant is the independent unit. The cohort statistic is the mean normal
 
 ## Benchmark and complementary analyses
 
-Pairwise PLV, topology-only, and attribute-permutation controls use the same participants, channels, stages, and endpoint. Paired differences use participant-bootstrap 95% confidence intervals, exact two-sided sign-flip tests, and Benjamini-Hochberg adjustment for the three primary controls. Bivariate Granger is evaluated separately.
+Pairwise PLV, topology-only, and attribute-permutation controls use the same participants, channels, stages, and endpoint. Paired differences use participant-bootstrap 95% confidence intervals, exact two-sided sign-flip tests, and Benjamini-Hochberg adjustment for the three controls. These are the three comparator rows retained in the current Supplementary Table S1.
 
 Figs. 3–5 use participant-level paired effects, 10,000-resample bootstrap confidence intervals, exact two-sided sign-flip tests, and Benjamini-Hochberg adjustment within metric families. The sensitivity grid reports participant-bootstrap confidence intervals around uncalibrated AP. Descriptive regional node activity in Fig. 2(e) is reported as participant means and standard deviations without an inferential regional hierarchy claim.

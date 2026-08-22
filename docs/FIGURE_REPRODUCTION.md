@@ -13,10 +13,12 @@ The public source workbook contains cohort-level means, confidence intervals, ex
 | `r_figures/Fig_4/make_Fig_4_aggregate.R` | `Fig_4` | adjacent-window ARI and module-entropy changes |
 | `r_figures/Fig_5/make_Fig_5_aggregate.R` | `Fig_5` | attribute/topology contrasts and hypergraph-projection efficiency |
 | `r_figures/Fig_6/make_Fig_6_aggregate.R` | `Fig_6` | parameter sensitivity and jump-strategy stability |
-| `r_figures/Supplementary_Fig_S1/make_Supplementary_Fig_S1_aggregate.R` | `Supp_Fig_S1` | aggregate sensitivity configuration summary |
-| `r_figures/Supplementary_Fig_S2/make_Supplementary_Fig_S2_aggregate.R` | `Supp_Fig_S2` | aggregate null and boundary analyses |
+| `r_figures/Supplementary_Fig_S1/make_Supplementary_Fig_S1_aggregate.R` | `Supp_Fig_S1` | privacy-safe aggregate companion to current Supplementary Fig. S1; participant-level points are withheld |
+| `r_figures/Supplementary_Fig_S2/make_Supplementary_Fig_S2_aggregate.R` | `Supp_Fig_S2` | additional repository-only aggregate boundary analyses; despite the historical technical name, this is not a figure in the current SI |
 
-`Supp_Table_S1` contains the aggregate paired AP differences, confidence intervals, exact sign-flip P values, and adjusted P values reported in Supplementary Table S1.
+`Supp_Table_S1` mirrors the four aggregate model rows in the current Supplementary Table S1: the HyNaPT reference plus Pairwise PLV, topology-only, and attribute-permutation comparisons. The patient-level Supplementary Table S2 is deliberately absent.
+
+The public workbook cannot recreate the patient-level point clouds in the current Supplementary Fig. S1. Its `Supp_Fig_S1` worksheet is a configuration-level aggregate companion that preserves the reported means and intervals without releasing participant rows.
 
 ## Visual conventions
 

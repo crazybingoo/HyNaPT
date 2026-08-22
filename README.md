@@ -13,7 +13,7 @@ HyNaPT is a MATLAB framework for time-resolved attributed-hypergraph analysis of
 - Exact within-unit, label-count-preserving AP permutation analysis and cohort-level normalized-lift summaries.
 - Deterministic synthetic data, MATLAB unit tests, and automated privacy checks.
 - `Source_Data.xlsx`, containing disclosure-reviewed aggregate statistics and synthetic numerical tests only.
-- R scripts for aggregate evidence panels corresponding to Figs. 2–6 and Supplementary Figs. S1–S2, plus aggregate Supplementary Table S1 values.
+- R scripts for aggregate evidence panels corresponding to Figs. 2–6, a privacy-safe aggregate companion to Supplementary Fig. S1, and repository-only boundary analyses, plus aggregate Supplementary Table S1 values.
 
 ## Repository layout
 
@@ -84,7 +84,7 @@ path = generate_transition_path(Q, sourceNode, ...
 
 ## Aggregate source data and figures
 
-`Source_Data.xlsx` contains cohort-level estimates, confidence intervals, test results, and synthetic boundary tests. Fig. 2 now includes aggregate regional node activity, benchmark AP, normalized AP lift against the exact within-patient null, AUROC, and enrichment. Supplementary Table S1 preserves the paired benchmark contrasts. The workbook contains no participant rows, clinical labels, channel names, coordinates, linkage keys, or local paths. Each plotting script reads one worksheet and writes PDF, SVG, PNG, and TIFF output under the ignored `results/public_figures` directory.
+`Source_Data.xlsx` contains cohort-level estimates, confidence intervals, test results, and synthetic boundary tests. Fig. 2 includes aggregate regional node activity, benchmark AP, normalized AP lift against the exact within-participant null, AUROC, and enrichment. `Supp_Table_S1` mirrors the four aggregate model rows in the current Supplementary Table S1. The patient-level rows in Supplementary Table S2 and the patient-level points in Supplementary Fig. S1 are not distributed; `Supp_Fig_S1` is an aggregate companion only. The historically named `Supp_Fig_S2` worksheet contains additional repository-only boundary analyses and is not a figure in the current SI. The workbook contains no participant-level rows, clinical labels, channel names, coordinates, linkage keys, or local paths. Each plotting script reads one worksheet and writes PDF, SVG, PNG, and TIFF output under the ignored `results/public_figures` directory.
 
 ```powershell
 Rscript r_figures/Fig_2/make_Fig_2_aggregate.R
@@ -94,7 +94,7 @@ Rscript r_figures/Fig_5/make_Fig_5_aggregate.R
 Rscript r_figures/Fig_6/make_Fig_6_aggregate.R
 ```
 
-The public scripts reproduce the aggregate evidence, not the restricted participant-level points or representative clinical traces in the submission figures. See [figure reproduction](docs/FIGURE_REPRODUCTION.md).
+The public scripts reproduce or accompany the aggregate evidence; they do not reproduce restricted participant-level points, rows, or representative clinical traces in the submission figures. See [figure reproduction](docs/FIGURE_REPRODUCTION.md) and the [public release boundary](docs/PUBLIC_RELEASE_BOUNDARY.md).
 
 ## Current aggregate result snapshot
 
@@ -104,7 +104,7 @@ See [experiment workflow](docs/EXPERIMENT_WORKFLOW.md), [statistical analysis](d
 
 ## Data protection
 
-This repository intentionally contains no raw or processed participant recordings, participant-level clinical labels, real or coded participant identifiers, electrode/contact labels, coordinates, dates, institutional identifiers, local clinical paths, or participant-derived rows. Run the privacy audit before every public commit:
+This repository intentionally contains no raw or processed participant recordings, participant-level clinical labels, real or coded participant identifiers, electrode/contact labels, coordinates, dates, institutional identifiers, local clinical paths, or participant-level rows. Manuscript/SI files and personal contact metadata are also excluded. Run the privacy audit before every public commit:
 
 ```powershell
 python tools/privacy_scan.py .

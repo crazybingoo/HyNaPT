@@ -35,8 +35,11 @@ Each script under `r_figures` reads `Source_Data.xlsx` and writes to `results/pu
 | Argmax and stochastic top-m paths | Yes | No | Tested with fixed seeds |
 | Exact AP permutation and cohort lift code | Yes | No | Tested with synthetic score/label vectors |
 | Aggregate manuscript evidence | Yes | No | Source workbook and R scripts |
+| Current Supplementary Table S1 aggregate rows | Yes | No | `Supp_Table_S1` |
+| Current Supplementary Table S2 participant rows | No | Yes | Not distributed |
+| Current Supplementary Fig. S1 participant points | No | Yes | Aggregate companion only |
 | Participant-level statistics | No | Yes | Not distributed |
 | Representative clinical traces and paths | No | Yes | Not distributed |
 | Independent external validation | No | Yes | Not yet available |
 
-The public aggregate workbook supports verification of reported summaries but cannot reconstruct participant-level tests from first principles. Authorized analysts need the approved controlled environment for that purpose.
+The public aggregate workbook supports verification of reported summaries but cannot reconstruct participant-level tests from first principles. The historically named `Supp_Fig_S2` worksheet is an additional repository-only boundary analysis, not a current SI figure. Authorized analysts need the approved controlled environment for participant-level recomputation.
