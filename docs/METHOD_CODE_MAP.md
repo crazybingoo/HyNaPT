@@ -13,6 +13,9 @@
 | Four-case transition matrix | `src/transition/assemble_transition_matrix.m` | normalization/asymmetry test |
 | Isolated-row normalization | `src/transition/make_row_stochastic.m` | uniform-row test |
 | Temporal fusion | `src/transition/fuse_transition_matrices.m` | alpha boundary tests |
+| Argmax and stochastic top-m paths | `src/analysis/generate_transition_path.m` | deterministic and seeded path tests |
+| Exact within-unit AP null | `src/analysis/evaluate_regional_concordance.m` | exact-enumeration test |
+| Cohort normalized AP lift | `src/analysis/summarize_regional_concordance.m` | deterministic bootstrap/joint-null test |
 | End-to-end public workflow | `workflows/run_feature_pipeline.m` | synthetic pipeline test |
 | Aggregate figure scripts | `r_figures/` | render audit |
 | Aggregate source data | `Source_Data.xlsx` | workbook and privacy audit |

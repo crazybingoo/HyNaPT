@@ -9,9 +9,11 @@ HyNaPT is a MATLAB framework for time-resolved attributed-hypergraph analysis of
 - Six signal- and topology-derived node attributes, with clinical zone labels excluded from the attribute vector.
 - Four mutually exclusive transition cases: hyper-direct, hyper-adjacent, hyper-indirect, and hyper-disconnected.
 - Row-stochastic transition matrices, isolated-row handling, and adjacent-window temporal fusion.
+- Deterministic argmax and stochastic top-m transition-path generation.
+- Exact within-unit, label-count-preserving AP permutation analysis and cohort-level normalized-lift summaries.
 - Deterministic synthetic data, MATLAB unit tests, and automated privacy checks.
 - `Source_Data.xlsx`, containing disclosure-reviewed aggregate statistics and synthetic numerical tests only.
-- R scripts for aggregate evidence panels corresponding to Figs. 2–6 and Supplementary Figs. S1–S2.
+- R scripts for aggregate evidence panels corresponding to Figs. 2–6 and Supplementary Figs. S1–S2, plus aggregate Supplementary Table S1 values.
 
 ## Repository layout
 
@@ -65,9 +67,24 @@ results = run_feature_pipeline(X, cfg);
 
 Clinical labels are not part of the node-attribute vector. If a downstream experiment uses a known source zone for initialization, keep the labels outside the public repository and do not reuse evaluation labels as model inputs.
 
+The public analysis helpers implement the manuscript's label-blind evaluation boundary. Remove source-zone contacts before calling `evaluate_regional_concordance`, keep scores fixed, and provide only the binary propagation-zone versus non-involved-zone target labels:
+
+```matlab
+patient = evaluate_regional_concordance(scores, labels);
+cohort = summarize_regional_concordance(scoreCells, labelCells);
+```
+
+For path-strategy checks, `CandidateFraction = 0` gives deterministic argmax; positive fractions retain the top-m non-zero destinations and advance to the modal result of probability-weighted draws:
+
+```matlab
+path = generate_transition_path(Q, sourceNode, ...
+    'Steps', 10, 'CandidateFraction', 0.25, ...
+    'NumSamples', 100, 'Seed', 1);
+```
+
 ## Aggregate source data and figures
 
-`Source_Data.xlsx` contains cohort-level estimates, confidence intervals, test results, and synthetic boundary tests. It contains no participant rows, clinical labels, channel names, coordinates, linkage keys, or local paths. Each plotting script reads one worksheet and writes PDF, SVG, PNG, and TIFF output under the ignored `results/public_figures` directory.
+`Source_Data.xlsx` contains cohort-level estimates, confidence intervals, test results, and synthetic boundary tests. Fig. 2 now includes aggregate regional node activity, benchmark AP, normalized AP lift against the exact within-patient null, AUROC, and enrichment. Supplementary Table S1 preserves the paired benchmark contrasts. The workbook contains no participant rows, clinical labels, channel names, coordinates, linkage keys, or local paths. Each plotting script reads one worksheet and writes PDF, SVG, PNG, and TIFF output under the ignored `results/public_figures` directory.
 
 ```powershell
 Rscript r_figures/Fig_2/make_Fig_2_aggregate.R
@@ -78,6 +95,12 @@ Rscript r_figures/Fig_6/make_Fig_6_aggregate.R
 ```
 
 The public scripts reproduce the aggregate evidence, not the restricted participant-level points or representative clinical traces in the submission figures. See [figure reproduction](docs/FIGURE_REPRODUCTION.md).
+
+## Current aggregate result snapshot
+
+In the 10-participant, one-seizure-per-participant analysis, mean AP was 0.734 (95% CI 0.581–0.867), compared with a patient-specific exact-null mean of 0.663. Mean normalized AP lift was 0.335 (95% CI 0.045–0.609; joint two-sided permutation P = 0.0195), with positive raw lift in 8 of 10 participants. Mean AUROC was 0.643 and mean PZ/NIZ enrichment was 1.494. These are conditional regional-concordance results after known source-zone initialization; they do not test source-zone discovery, electrode recruitment timing, causal propagation, external validation, or clinical decision benefit.
+
+See [experiment workflow](docs/EXPERIMENT_WORKFLOW.md), [statistical analysis](docs/STATISTICAL_ANALYSIS.md), [result snapshot](docs/RESULTS_SNAPSHOT.md), and [known limitations](docs/KNOWN_LIMITATIONS.md).
 
 ## Data protection
 

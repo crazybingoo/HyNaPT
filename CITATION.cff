@@ -16,6 +16,6 @@ authors:
   - family-names: Zhang
     given-names: Xi
 repository-code: "https://github.com/crazybingoo/HyNaPT"
-version: 0.3.0
-date-released: 2026-08-19
+version: 0.4.0
+date-released: 2026-08-22
 license: BSD-3-Clause

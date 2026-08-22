@@ -55,3 +55,11 @@ Q_t = (1 - alpha) P_t + alpha P_(t+1),  0 <= alpha <= 1,
 ```
 
 followed by the same row-normalization safeguard. Matrix asymmetry represents model-derived transition direction. It does not establish causal propagation or a separately validated directed-hypergraph reconstruction.
+
+The primary analysis uses `alpha = 0.5`; values 0.25 and 0.75 are prespecified sensitivity settings. The fusion is a specified convex combination, not a fitted dynamical process.
+
+## 6. Path generation and clinical-label boundary
+
+Known SOZ contacts may initialize a transition path. At each step, deterministic argmax selects the largest outgoing transition probability. In stochastic top-m analysis, a fixed fraction of non-zero destinations is retained, 100 targets are drawn in proportion to their transition probabilities, and the modal draw defines the next transition. PZ/NIZ labels remain outside path generation and are introduced only after scores or destinations have been fixed.
+
+Regional node activity is the post hoc fraction of SOZ-initialized path destinations falling in SOZ, PZ, or NIZ. Regional concordance instead ranks fixed uncalibrated scores for PZ versus NIZ contacts after excluding SOZ contacts. These quantities are not interchangeable.

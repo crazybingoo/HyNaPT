@@ -11,7 +11,7 @@ The workbook contains no participant rows or coded participant identifiers. It i
 
 ## Restricted inputs
 
-Raw and processed SEEG recordings, clinical annotations, electrode/contact labels, coordinates, dates, linkage keys, participant-level matrices, and participant-level result rows must remain in approved controlled storage. Access is governed by the originating ethics, consent, institutional, and clinical data-use conditions; this repository does not create a new access route.
+Raw and processed SEEG recordings, clinical annotations, electrode/contact labels, coordinates, dates, linkage keys, participant-level matrices, and participant-level result rows must remain in approved controlled storage. Access is governed by the originating ethics, consent, institutional, and clinical data-use conditions; this repository does not create a new access route. A qualified researcher request would require institutional approval, an appropriate data-use agreement, secure storage, and a prohibition on re-identification before any controlled transfer could be considered.
 
 ## Expected in-memory signal input
 

@@ -99,5 +99,37 @@ classdef TestCoreFunctions < matlab.unittest.TestCase
             testCase.verifySize(results.similarity{1}, [6, 6]);
             testCase.verifyTrue(all(isfinite(results.transition{1}), 'all'));
         end
+
+        function exactRegionalConcordanceUsesFixedScores(testCase)
+            result = evaluate_regional_concordance( ...
+                [0.9; 0.8; 0.2; 0.1], [1; 1; 0; 0]);
+            testCase.verifyEqual(result.observedAP, 1, 'AbsTol', 1e-12);
+            testCase.verifyEqual(numel(result.nullDistribution), 6);
+            testCase.verifyGreaterThan(result.normalizedLift, 0);
+        end
+
+        function cohortConcordanceIsDeterministic(testCase)
+            scores = {[0.9; 0.8; 0.2; 0.1]; [0.7; 0.6; 0.3; 0.2]};
+            labels = {[1; 1; 0; 0]; [1; 0; 1; 0]};
+            first = summarize_regional_concordance(scores, labels, ...
+                'BootstrapSamples', 200, 'JointSamples', 500, 'Seed', 7);
+            second = summarize_regional_concordance(scores, labels, ...
+                'BootstrapSamples', 200, 'JointSamples', 500, 'Seed', 7);
+            testCase.verifyEqual(first.normalizedLiftCI, ...
+                second.normalizedLiftCI, 'AbsTol', 0);
+            testCase.verifyEqual(first.twoSidedJointPermutationP, ...
+                second.twoSidedJointPermutationP, 'AbsTol', 0);
+        end
+
+        function transitionPathSupportsArgmaxAndTopM(testCase)
+            Q = [0 0.7 0.3; 0.2 0 0.8; 0.6 0.4 0];
+            argmaxPath = generate_transition_path(Q, 1, ...
+                'Steps', 3, 'CandidateFraction', 0);
+            sampledPath = generate_transition_path(Q, 1, ...
+                'Steps', 3, 'CandidateFraction', 0.5, ...
+                'NumSamples', 100, 'Seed', 3);
+            testCase.verifyEqual(argmaxPath, [1 2 3 1]);
+            testCase.verifyEqual(sampledPath, argmaxPath);
+        end
     end
 end
